@@ -1,19 +1,32 @@
-import logo from "../assets/red30-tech-logo.png";
 
+import { Route,Routes } from "react-router-dom";
+import Home from "./Home";
+import Diplomas from "./Diplomas";
+import Course from "./Course";
+import Session from "./Session";
+import Register from "./Register";
+import Confirmation from "./Confirmation";
+import Header from "./Header";
 function App() {
   return (
     <div className="app">
-      <header className="container">
-        <img
-          className="logo"
-          src={logo}
-          alt="Red30 Tech logo"
-          title="Red30 Tech | Home"
-        />
-      </header>
+      <Header/>
+
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="diplomas" element={<Diplomas/>}>
+        <Route path=":catId" element={<Course/>}>
+        <Route path=":sessionId" element={<Session/>}/>
+        </Route>
+        <Route index element={<h3>Select a diploma from above</h3>}/>
+      </Route>
+      <Route path="register" element={<Register/>}/>
+      <Route path="confirmed" element={<Confirmation/>}/>
+      <Route path="*" element={<h1 className="not-found">Page Not Found</h1>}/>
+    </Routes>
 
       <footer className="container">
-        &copy;2022 | <a href="https://red30tech.com/">Red30 Tech</a>
+        &copy;2024 | <a href="https://www.rp.edu.sg/schools-courses"> Republic Polytechnic</a>
       </footer>
     </div>
   );
