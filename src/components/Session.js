@@ -1,11 +1,15 @@
+import { useParams } from "react-router-dom";
 import { getSession } from "../api";
 
 export default function Session() {
-  // Replace the placeholder catId and sessionId variables with a React Router Hook
-  const catId = "3d-printing-and-design";
-  const sessionId = "3d-printing-metal";
+  const { catId, sessionId } = useParams();
+  const session = getSession({ catId, sessionId });
 
-  const { name, desc, speaker } = getSession({ catId, sessionId });
+  if (!session) {
+    return <h3>Session not found</h3>;
+  }
+
+  const { name, desc, speaker } = session;
 
   return (
     <>

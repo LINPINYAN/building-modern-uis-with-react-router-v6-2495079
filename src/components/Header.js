@@ -13,19 +13,14 @@ export default function Header() {
           alt="Red30 Tech logo"
           title="Red30 Tech | Home"
         />
-      </Link>
-
-      <nav>
-        <NavLink to="/" className={getClass}>
-          Home
-        </NavLink>
-        <NavLink to="/about" className={getClass}>
-          About
-        </NavLink>
-        <NavLink to="/categories" className={getClass}>
-          Categories
-        </NavLink>
-      </nav>
-    </header>
+        </Link>
+        <nav>
+          <NavLink to="/" className={getClass}>Home</NavLink>
+          <NavLink to="/about" className={getClass}>About</NavLink>
+          <NavLink to="/categories" className={getClass}>Categories</NavLink>
+          <NavLink to="/register" className={getClass}>Register</NavLink>
+          
+        </nav>
+      </header>
   );
 }
